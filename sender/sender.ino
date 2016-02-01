@@ -1,0 +1,32 @@
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin( 9600 );
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  byte tag1[] = { 0xAA, 0x88, 0x06, 0x02, 0x03, 0x2, 0x00, 0x00, 0x01, 0x01 };
+  byte tag2[] = { 0xAA, 0x89, 0x06, 0x02, 0x03, 0x3, 0x01, 0xA9, 0x02, 0x02 };
+  byte tag3[] = { 0xAA, 0x89, 0x06, 0x02, 0x03, 0x3, 0x01, 0xA9, 0x03, 0x03 };
+  byte tag4[] = { 0xAA, 0x89, 0x06, 0x02, 0x03, 0x3, 0x01, 0xA9, 0x04, 0x04 };
+  byte tag5[] = { 0xAA, 0x89, 0x06, 0x02, 0x03, 0x3, 0x01, 0xA9, 0x05, 0x05 };
+  
+  int i = 0;
+  while( i < 5 ){
+    if( i == 0 ){
+      Serial.write( tag1, sizeof(tag1) );
+    }else if( i == 1 ){
+      Serial.write( tag2, sizeof(tag2) );    
+    }else if( i == 2 ){
+      Serial.write( tag3, sizeof(tag3) );    
+    }else if( i == 3 ){
+      Serial.write( tag4, sizeof(tag4) );    
+    }else if( i == 4 ){
+      Serial.write( tag5, sizeof(tag5) );    
+    }
+    i++;
+    delay(100);
+    
+  }
+  
+}
